@@ -17,9 +17,9 @@ def remove_all(l,e): # type: ignore
             l.append(i)
     return l
 
-remove_all(l,e)
+# remove_all(l,e)
 # print(a)n 
-print(l)
+# print(l)
 
 def remove_all(l,e):
     while e in l:
@@ -86,12 +86,12 @@ def f():
     return listt
 #  here we are creating a list of list which output is a list of list
 lnew = [[e,e**2] for e in range(10) if e%2 == 0]
-print(lnew )
+# print(lnew )
 
 lnew1= [len(l) for x in ['xy','abcd',7,'4.0'] if type(x) == str]
-print(lnew1)
-print(type(lnew1))
-
+# print(lnew1)
+# print(type(lnew1))
+#########################
 
 # default parameters
 # include the bisection function for guessing the number
@@ -108,8 +108,11 @@ def make(a):
 # val= make(3)(2)
 dobler = make(2)
 val = dobler(3)
-print(val)
+# print(val)
 
+#################
+#lecture 13
+#################
 
 # Exception handling 
 
@@ -124,7 +127,7 @@ def divide_nums3():
     except ZeroDivisionError:
         print("Can't divide by zero")
         print("a/b = infinity")
-        print("a+b =", a+b)
+        print("a+b =", a + b)
     except:
         print("Something went very wrong.")
 
@@ -139,7 +142,7 @@ def sum_digits(s):
             raise ValueError("string contained a character")
     return total
 
-print(sum_digits("123"))
+# print(sum_digits("123"))
 
 
 def pairwise_div(Lnum, Ldenom):
@@ -165,10 +168,11 @@ def pairwise_div(Lnum, Ldenom):
     lnew = []
     lnew = [Lnum[i]/Ldenom[i] for i in range(len(Lnum)) if Ldenom[i] != 0 ] # Close the square bracket here
     return lnew
-print(pairwise_div([4,5,6],[1,2,3]))
+
+# print(pairwise_div([4,5,6],[1,2,3]))
 
 
-# assertions
+# Assertions
 
 def sum_digits1(s):
     assert len(s) != 0, "string is empty"
@@ -181,4 +185,37 @@ def sum_digits1(s):
             raise ValueError("string contained a character")
     return total
 
-print(sum_digits1("123"))
+# print(sum_digits1("123"))
+
+# students in list of list and check the avg of student grades
+
+test_grades = [[['peter', 'parker'], [80.0, 70.0, 85.0]],
+                [['bruce', 'wayne'], [100.0, 80.0, 74.0]],
+                [['captain', 'america'], [80.0, 70.0, 96.0]],
+                [['deadpool'], []]]
+
+def get_stats(test_grades):
+    new_list = []
+    for i in test_grades:
+        print(i)
+        name = i[0]
+        grades = i[1]
+        # assert len(grades) != 0, "no grades data"
+        print(grades)
+        try :
+            avg = sum(grades)/len(grades)
+            print(sum(grades))
+        except ZeroDivisionError:
+            return 0.0
+        new_list.append([name,grades,avg])
+    return new_list
+
+# print(get_stats(test_grades))
+
+###############
+# lecture 14
+
+
+
+
+

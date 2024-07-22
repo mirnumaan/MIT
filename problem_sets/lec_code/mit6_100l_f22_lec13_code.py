@@ -269,3 +269,40 @@ def pairwise_div(Lnum, Ldenom):
         except:
             raise ValueError
     return L
+
+print(pairwise_div([4,5,6],[1,2,3]))  # prints [4.0,2.5,2.0]
+
+
+# problem set for this lecture
+
+def sum_str_lengths(L):
+    """
+    L is a non-empty list containing either: 
+    * string elements or 
+    * a non-empty sublist of string elements
+    Returns the sum of the length of all strings in L and 
+    lengths of strings in the sublists of L. If L contains an 
+    element that is not a string or a list, or L's sublists 
+    contain an element that is not a string, raise a ValueError.
+    """
+    # Your code here  
+    # challenge: write this with list comprehension!
+    sum = 0
+    for i in L :
+        print(i)
+        try :
+            if type(i) == str:
+                raise ValueError
+            
+            for k in i:
+                if type(k) == str:
+                    sum += len(k)
+                else :
+                    raise ValueError
+        except:
+            raise ValueError
+    return sum
+# Examples:
+print(sum_str_lengths(["abcd", ["e", "fg"]]))  # prints 7
+# print("here the first value is a string " , sum_str_lengths([12, ["e", "fg"]]))      # raises ValueError
+print(sum_str_lengths(["abcd", [3, "fg"]]))    # raises ValueError
