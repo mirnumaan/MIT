@@ -8,16 +8,18 @@
 # print(lcopy)
 l = [1,4,4]
 e = 2
-def remove_all(l,e):
+def remove_all(l,e): # type: ignore
     l1 = l[:]
     l.clear()
     for i in l1:
         if e != i:
             print(i)
             l.append(i)
+    return l
 
-# remove_all(l,e)
-# print(l)
+remove_all(l,e)
+# print(a)n 
+print(l)
 
 def remove_all(l,e):
     while e in l:
@@ -40,6 +42,8 @@ def duplicate_list(l1,l2):
 # l2 = [1]
 # l2 = duplicate_list(l1,l2)
 # print(l2)
+
+
 
 
 
@@ -98,6 +102,8 @@ def make(a):
     def g(b):
         return a+b
     return g
+# here the code calls the inner function g and returns the value of a+b ,
+#  here we are chaining the value of a and then calling the inner function g
 
 # val= make(3)(2)
 dobler = make(2)
@@ -105,4 +111,74 @@ val = dobler(3)
 print(val)
 
 
+# Exception handling 
 
+def divide_nums3():
+    try:
+        a = int(input("Tell me one number: "))
+        b = int(input("Tell me another number: "))
+        print("a/b = ", a/b)
+        print("a+b = ", a+b)
+    except ValueError:
+        print("Could not convert to a number.")
+    except ZeroDivisionError:
+        print("Can't divide by zero")
+        print("a/b = infinity")
+        print("a+b =", a+b)
+    except:
+        print("Something went very wrong.")
+
+# flag a terminal and stop the program
+def sum_digits(s):
+    total = 0
+    for char in s:
+        try :
+            val = int(char)
+            total += val
+        except:
+            raise ValueError("string contained a character")
+    return total
+
+print(sum_digits("123"))
+
+
+def pairwise_div(Lnum, Ldenom):
+    """ Lnum and Ldenom are non-empty lists of 
+        equal lengths containing numbers
+
+    Returns a new list whose elements are the pairwise 
+    division of an element in Lnum by an element in Ldenom. 
+
+    Raise a ValueError if Ldenom contains 0. """
+    # your code here
+    # challenge: write this with list comprehension!
+
+#     lnew  = []
+#     for i in range(len(Lnum)):
+#         if Ldenom[i] == 0:
+#             raise ValueError("denominator is zero")
+#         lnew.append(Lnum[i]/Ldenom[i])
+#     return lnew
+
+# print(pairwise_div([4,5,6],[1,2,3]))
+    assert len(Lnum) == len(Ldenom), "lists are not of equal length"
+    lnew = []
+    lnew = [Lnum[i]/Ldenom[i] for i in range(len(Lnum)) if Ldenom[i] != 0 ] # Close the square bracket here
+    return lnew
+print(pairwise_div([4,5,6],[1,2,3]))
+
+
+# assertions
+
+def sum_digits1(s):
+    assert len(s) != 0, "string is empty"
+    total = 0
+    for char in s:
+        try :
+            val = int(char)
+            total += val
+        except:
+            raise ValueError("string contained a character")
+    return total
+
+print(sum_digits1("123"))
