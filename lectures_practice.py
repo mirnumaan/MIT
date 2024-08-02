@@ -213,9 +213,48 @@ def get_stats(test_grades):
 # print(get_stats(test_grades))
 
 ###############
-# lecture 14
+# lecture 14: dictionaries 
+
+# we wil be using list to store students name 
+
+name= ["n","a","b"]
+grades = [1,2,3]
+
+def get_stats1(name,grades):
+    list1 =[]
+    for i in range(len(name)):
+        list1.append([name[i],grades[i]])
+    return list1
+
+grades_students = get_stats1(name,grades)
+
+print(grades_students)
+
+# 
+
+eric = ['eric',['ps',[8,4,5]],['mq',[6.7]]]
+desire = ['desire',['ms',[8,4,5]],['mq',[6.7]]]
+grades = [eric,desire]
+def read_grades(who,what,data):
+    for i in data:
+        if i[0]==who:
+            for j in i[1:]:
+                if j[0]== what:
+                    return who ,j
+                
+print(read_grades('desire','ms',grades))
 
 
+# #################
 
+my_dict = {
+    'numaan': 'name',
+    'race': 'indian',
+    'age': 27,
+
+
+}
+
+print(my_dict['age'])
 
 
