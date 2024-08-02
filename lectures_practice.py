@@ -254,7 +254,45 @@ my_dict = {
 
 
 }
+d = {'Ana': 'B', 'Matt': 'C', 'John': 'B', 'Katy': 'A'}
+def final(d, names):
+    return [d[name] for name in names]
 
-print(my_dict['age'])
+print(final(d, ['Matt', 'Katy']))  # returns ['C', 'A']
+print(my_dict)
 
+# lecture 15
+
+# recursion
+
+def recur(a):
+    if a ==1:
+        return 1
+    else:
+        return a + recur(a-1)
+   
+ 
+
+
+print(recur(5))
+
+# exercise
+
+def recur_power(base, exp):
+    """
+    base: int or float.
+    exp: int >= 0
+
+    Returns base to the power of exp using recursion.
+    Hint: Base case is when exp = 0. Otherwise, in the recursive
+    case you return base * base^(exp-1).
+    """
+    if exp == 0:
+        print(1)
+    else:
+        return base * base**(exp-1)
+    # Your code here  
+
+# Examples:
+print(recur_power(2,5))
 
